@@ -1,24 +1,17 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const insert = document.getElementById("insert") as HTMLDivElement;
+window.addEventListener("keydown", (e) => {
+  insert.innerHTML = `<div class="key">
+        ${e.key === " " ? "Space" : e.key}
+        <small>event.key</small>
+      </div>
+      <div class="key">
+${e.keyCode}
+        <small>event.keyCode</small>
+      </div>
+      <div class="key">
+        ${e.code}
+        <small>event.code</small>
+      </div>`;
+});
